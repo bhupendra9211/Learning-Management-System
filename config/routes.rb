@@ -1,7 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :admins
+  devise_for :admins, skip: [:registrations]
+
+  authenticated :admin_user do
+    root to: "admin#index", as: :admin_root
+  end
+
+  get "admin" => "admin#index"
+  
   devise_for :users
   resources :courses
+
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
