@@ -1,5 +1,11 @@
 <p style="color: green"><%= notice %></p>
+<div class="mx-auto w-full flex flex-col lg:flow-row pb-6">
+  <div class="mx-auto w-full">
+    <% if @course.lessons.any? && @course.lessons.first.video.present? %>
+      <%= video_tag @course.lessons.first.video, controls: true, class: "w-full rounde d mb-6" %>
+    <% end %>
 
-<div>
-  <%= link_to "Back to courses", courses_path %>
+
+    <%= link_to "Back to courses", courses_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-200 inline-block font-medium" %>
+  </div>  
 </div>
