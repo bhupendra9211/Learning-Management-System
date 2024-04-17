@@ -7,6 +7,7 @@ gem "rails", "~> 7.1.3", ">= 7.1.3.2"
 
 gem 'devise', '~> 4.9', '>= 4.9.3'
 gem 'ruby-vips', '~> 2.2', '>= 2.2.1'
+gem 'stripe', '~>10.3'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
