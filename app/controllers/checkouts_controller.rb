@@ -1,7 +1,7 @@
 class CheckoutsController < ApplicationController
     before_action :authenticate_user!
   
-    Stripe.api_key = 'sk_test_51P6T38IqFQGtfKgrLkXO9MYPgBP9EvvSJlfySap3WJtABhlfEmYkKC4ApxTSr2P5nelWxXe0df9ukyxVYFibZRRj00hHgiSMU1'
+    Stripe.api_key = 
   
     def create
       course = Course.find(params[:course_id])  
