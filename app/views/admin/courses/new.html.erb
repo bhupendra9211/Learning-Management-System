@@ -1,9 +1,9 @@
-<h1>New course</h1>
+<div class="flex flex-col justify-start items-center w-full">
+  <%= render "form", admin_course: @admin_course %>
 
-<%= render "form", admin_course: @admin_course %>
+  <br>
 
-<br>
-
-<div>
-  <%= link_to "Back to courses", admin_courses_path %>
+  <div class="mt-4">
+    <%= link_to "Back to courses", admin_courses_path, class: "bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded cursor-pointer" %>
+  </div>
 </div>

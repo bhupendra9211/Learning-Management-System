@@ -12,6 +12,12 @@ Rails.application.routes.draw do
   resources :courses do
     resources :lessons
   end
+
+  namespace :admin do
+    resources :courses
+  end
+
+
   resources :checkouts, only: [:create]
 
 

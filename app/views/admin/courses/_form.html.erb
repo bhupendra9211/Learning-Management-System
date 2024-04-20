@@ -1,7 +1,8 @@
-<%= form_with(model: admin_course) do |form| %>
+<% bold_italic = "<strong><em>" %>
+<%= form_with(model: [:admin, admin_course]) do |form| %>
   <% if admin_course.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(admin_course.errors.count, "error") %> prohibited this admin_course from being saved:</h2>
+      <h2><%= pluralize(admin_course.errors.count, "#{bold_italic}error#{bold_italic}") %> prohibited this admin_course from being saved:</h2>
 
       <ul>
         <% admin_course.errors.each do |error| %>
@@ -11,7 +12,38 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.submit %>
+  <div class="flex flex-col mt-4">
+    <%= form.label :title, class: "text-sm" %>
+    <%= form.text_field :title, class: "border border-gray-300 rounded p-2", id: "title", placeholder: "Course title" %>
+  </div>
+
+  <div class="flex flex-col mt-4">
+    <%= form.label :description, class: "text-sm" %>
+    <%= form.rich_text_area :description, class: "border border-gray-300 rounded p-2", id: "description", placeholder: "Course description" %>
+  </div>
+
+  <div class="flex flex-col mt-4">
+    <%= form.label :stripe_price_id, class: "text-sm" %>
+    <%= form.text_field :stripe_price_id, class: "border border-gray-300 rounded p-2", id: "stripe_price_id" %>
+  </div>
+
+  <div class="flex flex-col mt-4">
+    <%= form.label :image, class: "text-sm" %>
+    <%= form.file_field :image, class: "border border-gray-300 rounded p-2", id: "image" %>
+    <%= image_tag admin_course.image, class: "w-64 rounded mb-2" if admin_course.image.present? %>
+  </div>
+
+  <div class="flex flex-col mt-4">
+    <%= form.label :paid, class: "text-sm" %>
+    <%= form.check_box :paid, id: "paid" %>
+  </div>
+
+  <div class="flex flex-col mt-4">
+    <%= form.label :premium_description, class: "text-sm" %>
+    <%= form.rich_text_area :premium_description, class: "border border-gray-300 rounded p-2", id: "premium_description", placeholder: "Premium course description" %>
+  </div>
+
+  <div class="mt-4">
+    <%= form.submit "Submit", class: "bg-blue-500 hover:bg-blue-600 text-white rounded cursor-pointer px-4 py-2" %>
   </div>
 <% end %>
