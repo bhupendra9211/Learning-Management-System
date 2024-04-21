@@ -1,0 +1,40 @@
+<div class="flex flex-col justify-start items-center w-full">
+  <p style="color: green"><%= notice %></p>
+
+  <div class="w-full flex flex-col md:flex-row justify-end mb-8">
+    <%= form_with url: admin_users_path, method: :get, class: "flex" do |form| %>
+     <%= form.text_field :query, placeholder: "Search", class: "rounded-lg border border-gray-300 text-gray-700 px-4 py-2 focus:outline-none focus:border-red-500 focus:ring-red-500" %>
+      <%= form.submit "Search", class: "ml-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded focus:outline-none focus:bg-indigo-700 focus:ring-2 focus:ring-indigo-600 focus:ring-opacity-50 cursor-pointer" %>
+    <% end %>
+    <%= form_with url: admin_users_path, method: :get, class: "flex" do |form| %>
+      <%= form.submit "Clear", class: "ml-0 md:ml-2 mt-2 md:mt-0 px-4 py-2 bg-gray-400 hover:bg-gray-500 text-white rounded focus:outline-none focus:bg-gray-500 focus:ring-2 focus:ring-gray-600 focus:ring-opacity-50 cursor-pointer" %>
+    <% end %>
+  </div>
+
+  <div class="w-full overflow-x-auto">
+    <table class="min-w-full bg-white shadow-md rounded my-6">
+      <thead>
+        <tr class="text-gray-700">
+          <th class="px-6 py-3 border-b-2 border-gray-300 text-left bg-gray-200"></th>
+          <th class="px-6 py-3 border-b-2 border-gray-300 text-left bg-gray-200">Email</th>
+          <th class="px-6 py-3 border-b-2 border-gray-300 text-left bg-gray-200">Created At</th>
+          <th class="px-6 py-3 border-b-2 border-gray-300 text-left bg-gray-200">Updated At</th>
+          <th class="px-6 py-3 border-b-2 border-gray-300 text-left bg-gray-200">Destroy User</th>
+        </tr>
+      </thead>
+      <tbody class="text-gray-600">
+        <% @admin_users.each do |user| %>
+          <tr>
+            <td class="px-6 py-4 border-b border-gray-300"><%= link_to "show", admin_user_path(user), class: "underline" %></td>
+            <td class="px-6 py-4 border-b border-gray-300"><%= user.email %></td>
+            <td class="px-6 py-4 border-b border-gray-300"><%= user.created_at.to_formatted_s(:long) %></td>
+            <td class="px-6 py-4 border-b border-gray-300"><%= user.updated_at.to_formatted_s(:long) %></td>
+            <td class="px-6 py-4 border-b border-gray-300">
+              <%= button_to "Delete", [:admin, user], method: :delete, data: { 'turbo-confirm': "Are you sure? All their data will be deleted." }, class: "text-red-600" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
