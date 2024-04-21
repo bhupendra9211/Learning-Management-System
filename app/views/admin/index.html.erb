@@ -50,7 +50,12 @@
         </tr>
       </thead>
       <tbody class="text-gray-700">
-        <!-- Your table content here -->
+        <% @most_popular_courses.each do |course| %>
+          <tr>
+            <td class="px-6 py-4 border-b border-gray-200"><%= course.title %></td>
+            <td class="px-6 py-4 border-b border-gray-200"><%= course.course_users.count %></td>
+          </tr>
+        <% end %> 
       </tbody>
     </table>
   </div>
