@@ -1,6 +1,6 @@
 class Admin::LessonsController < AdminController
     before_action :set_course
-    before_action :set_lesson, only: [:show, :edit]
+    before_action :set_lesson, only: [:show, :edit, :update, :destroy]
     def index
         @admin_lessons = @admin_course.lessons.order(:position)
     end
@@ -17,6 +17,14 @@ class Admin::LessonsController < AdminController
     
     end
 
+    def update
+        if @admin_lesson.update(lesson_params)
+          redirect_to admin_course_lessons_path(@admin_course)
+        else
+          render :edit
+        end
+    end
+
     def create
         @admin_lesson = @admin_course.lessons.new(lesson_params)
     
@@ -25,6 +33,12 @@ class Admin::LessonsController < AdminController
         else
           render :new
         end
+    end
+
+    def destroy
+        @admin_lesson.destroy!
+    
+        redirect_to admin_course_lessons_path(@admin_course)
     end
 
     private
