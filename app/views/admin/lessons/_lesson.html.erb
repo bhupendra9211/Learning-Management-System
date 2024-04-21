@@ -1,0 +1,16 @@
+<div id="<%= dom_id lesson %>" class="max-w-sm min-w-64 rounded-b overflow-hidden shadow-lg hover:bg-amaranth-100">
+  <%= link_to [:admin, @admin_course, lesson] do %>
+<%= (lesson.video.present?) ? (video_tag lesson.video, autoplay: false, controls: true, class: "rounded") : "No video available" %>
+
+    <div class="px-6 py-4">
+      <div class="font-bold text-xl mb-2">
+        <%= lesson.title %> 
+      </div>
+      <div class="text-gray-700">
+        <%= lesson.description %> 
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
