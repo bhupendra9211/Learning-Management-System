@@ -15,6 +15,7 @@ class Admin::CoursesController < AdminController
         @admin_course = Course.new(course_params)
     
         if @admin_course.save
+          NotifierMailer.create_notifier(@admin_course).deliver_now
           redirect_to admin_courses_path
         else
           render :new
