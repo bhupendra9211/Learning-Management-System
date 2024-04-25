@@ -2,9 +2,7 @@
   <div class="flex justify-end items-center">
     <a href="<%= new_admin_course_path %>" class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-md text-white text-sm">New course</a>
   </div>
-
   <p style="color: green"><%= notice %></p>
-
   <div id="admin_courses" class="min-w-full flex flex-wrap justify-center gap-5 mt-6 pb-6">
     <% @admin_courses.each do |admin_course| %>
       <%= render admin_course %>

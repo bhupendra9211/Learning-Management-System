@@ -7,7 +7,11 @@ Rails.application.routes.draw do
 
   get "admin" => "admin#index"
   
-  devise_for :users
+  # devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
+  resources :user
   
   resources :courses do
     resources :lessons

@@ -76,3 +76,6 @@ group :test do
 end
 
 gem "groupdate", "~> 6.4"
+gem 'sendgrid-ruby'
+
+# gem 'httparty'
