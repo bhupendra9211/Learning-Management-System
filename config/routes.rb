@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     root to: "admin#index", as: :admin_root
   end
 
+  post '/admin/add_all_user_to_sendgrid', to: 'admin#add_all_user_to_sendgrid'
+
+
   get "admin" => "admin#index"
   
   # devise_for :users
