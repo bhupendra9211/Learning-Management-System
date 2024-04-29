@@ -10,12 +10,12 @@ class SendgridAllcontactService
          email: user.email,
         #  address_line_1: user.address_line_1,
          address_line_2: user.address_line_2,
-         city: user.city,
+        #  city: user.city,
         #  country: user.country,
-         phone_number_id: user.phone_number,
+        #  phone_number_id: user.phone_number,
          first_name: user.first_name,
          last_name: user.last_name,
-        #  postal_code: user.postal_code,
+         postal_code: user.postal_code,
          } }
 
     data = {

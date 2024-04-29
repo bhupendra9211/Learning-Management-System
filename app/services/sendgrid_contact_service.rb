@@ -3,6 +3,7 @@ class SendgridContactService
     @sg = SendGrid::API.new(api_key: api_key)
     @email = email
   end
+  
 
   def add_or_update_user_email  
     data = {
