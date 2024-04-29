@@ -3,16 +3,18 @@ class SendgridAllcontactService
     @sg = SendGrid::API.new(api_key: api_key)
   end
 
+
+
   def add_all_users(users)
     contacts = users.map { |user| {
          email: user.email,
         #  address_line_1: user.address_line_1,
-        #  address_line_2: user.address_line_2,
-        #  city: user.city,
+         address_line_2: user.address_line_2,
+         city: user.city,
         #  country: user.country,
-        #  phone_number_id: user.phone_number,
-        #  first_name: user.first_name,
-        #  last_name: user.last_name,
+         phone_number_id: user.phone_number,
+         first_name: user.first_name,
+         last_name: user.last_name,
         #  postal_code: user.postal_code,
          } }
 

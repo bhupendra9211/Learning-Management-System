@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_21_040142) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_29_061151) do
   create_table "action_text_rich_texts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.text "body", size: :long
@@ -126,8 +126,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_21_040142) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.string "address_line_1"
+    t.string "address_line_2"
+    t.string "city"
+    t.string "country"
+    t.string "phone_number"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "postal_code"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
