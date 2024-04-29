@@ -13,10 +13,11 @@
         password: Faker::Internet.password(min_length: 8),
         first_name: Faker::Name.first_name ,
         last_name: Faker::Name.last_name,
-        address_line_1: Faker::Address.street_address,
-        address_line_2: Faker::Address.city_prefix,
-        city: Faker::Address.state ,
-        country: Faker::Address.country ,
+        address_line_1: Faker::Address.street_address[0..90],
+        address_line_2: Faker::Address.city[0..50],
+        city: Faker::Address.city[0..50] ,
+        country: Faker::Address.country_by_code,
+        # country: Faker::Address.country[0..40],
         phone_number: Faker::PhoneNumber.cell_phone_in_e164,
         postal_code: Faker::Address.zip_code
     )
