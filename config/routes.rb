@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   devise_for :admins, skip: [:registrations]
+  
+  # Defines the root path route ("/")
+  root "courses#index"
 
   authenticated :admin_user do
     root to: "admin#index", as: :admin_root
@@ -37,6 +40,4 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
-  # Defines the root path route ("/")
-  root "courses#index"
 end
